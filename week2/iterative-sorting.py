@@ -58,24 +58,17 @@ def recursive_binary_search(arr, target, left_index_offset = 0, steps = 1):
     left_index = 0
     right_index = len(arr) - 1
 
-    if left_index != right_index:
-        middle_index = left_index + ( (right_index - left_index) // 2 )
+    middle_index = left_index + ( (right_index - left_index) // 2 )
 
-        print(middle_index, left_index_offset + middle_index)
-        if arr[middle_index] == target:
-            print("yo")
-            return {
-                'index': left_index_offset + middle_index,
-                'steps': steps
-            }
-        elif arr[middle_index] > target:
-            print("greater than")
-            recursive_binary_search(arr[:middle_index], target, left_index_offset, steps + 1)
-        else: 
-            print("less than")
-            recursive_binary_search(arr[middle_index + 1:], target, left_index_offset + middle_index, steps + 1)
-
-    return None
+    if arr[middle_index] == target:
+        return {
+            'index': left_index_offset + middle_index,
+            'steps': steps
+        }
+    elif arr[middle_index] > target:
+        return recursive_binary_search(arr[:middle_index], target, left_index_offset, steps + 1)
+    else: 
+        return recursive_binary_search(arr[middle_index + 1:], target, left_index_offset + middle_index + 1, steps + 1)
 
 print(recursive_binary_search(test_data, 10))
 
