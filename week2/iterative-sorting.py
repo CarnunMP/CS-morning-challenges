@@ -60,18 +60,25 @@ def recursive_binary_search(arr, target, left_index_offset = 0, steps = 1):
 
     middle_index = left_index + ( (right_index - left_index) // 2 )
 
-    if arr[middle_index] == target:
+    # Not sure if try-catch was the best way to handle targets which don't exist in arr, but it works!
+    try:
+        if arr[middle_index] == target:
+            return {
+                'index': left_index_offset + middle_index,
+                'steps': steps
+            }
+        elif arr[middle_index] > target:
+            return recursive_binary_search(arr[:middle_index], target, left_index_offset, steps + 1)
+        else: 
+            return recursive_binary_search(arr[middle_index + 1:], target, left_index_offset + middle_index + 1, steps + 1)
+    except:
         return {
-            'index': left_index_offset + middle_index,
+            'index': None,
             'steps': steps
         }
-    elif arr[middle_index] > target:
-        return recursive_binary_search(arr[:middle_index], target, left_index_offset, steps + 1)
-    else: 
-        return recursive_binary_search(arr[middle_index + 1:], target, left_index_offset + middle_index + 1, steps + 1)
 
 print(recursive_binary_search(test_data, 10))
-
+print(recursive_binary_search(test_data, 20))
 
 ### Objective challenge:
 ### 1. What will the array [25, 67, 4, 33, 19, 40] look like after each pass of the Selection Sort algorithm?
