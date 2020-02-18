@@ -3,6 +3,20 @@
 ### 2. What would be the base case(s) we’d have to consider for implementing this function?
 ### 3. How should our recursive solution converge on our base case(s)?
 
+def recursive_search(arr, target):
+    if len(arr) == 0:
+        return False
+
+    if arr[len(arr) - 1] == target:
+        return True
+    else:
+        return False or recursive_search(arr[:-1], target)
+
+print(recursive_search([1, 2, 3], 3)) # -> True
+print(recursive_search([1, 2, 3], 4)) # -> False
+    
+
+
 ### Objective challenge:
 ### 1. What will the contents of the array below be after each pass of the Merge Sort algorithm? merge-challenge
 ### 2. What will the contents of the array below be after each pass of the Quick Sort algorithm? (assume the first element is chosen as the pivot)
