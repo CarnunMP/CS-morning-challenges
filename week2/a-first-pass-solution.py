@@ -1,7 +1,7 @@
 ### Objective challenge:
 ### Given an image represented by an NxN matrix, where each pixel in the image is an integer from 0 to 9, write a function rotate_image that receives a matrix as input and rotates the image by 90 degrees in the counter-clockwise direction.
 
-# You can think of such a rotation as the composition of two relfections: about the y-axis, then the line y = -x.
+# You can think of such a rotation as the composition of two reflections: about the y-axis, then the line y = -x.
 # So:
 
 def rotate_cc(image_matrix):
