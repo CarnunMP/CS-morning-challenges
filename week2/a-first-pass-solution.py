@@ -22,9 +22,9 @@ def rotate_cc(image_matrix):
     # Reflection about y = -x is like swapping diagonal elements:
     for i in range(len(image_matrix)):
         for j in range(len(image_matrix)):
-            if i < j:                # Can ignore the Xs: [[X b c d],
-                temp = image_matrix[j][i]               #  [X X g h],
-                image_matrix[j][i] = image_matrix[i][j] #  [X X X l],
+            if i < j:                # Can ignore the Xs: [[X c b a],
+                temp = image_matrix[j][i]               #  [X X f e],
+                image_matrix[j][i] = image_matrix[i][j] #  [X X X i],
                 image_matrix[i][j] = temp               #  [X X X X]]
 
     return image_matrix
