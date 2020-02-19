@@ -33,6 +33,12 @@ print(rotate_cc([[1, 2, 3], [1, 2, 3], [1, 2, 3]]))
 print(rotate_cc([[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]))
 print(rotate_cc([[1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]]))
 
+# One thought after-the-fact: I overcomplicated column-swaping! All that needs to be done is this:
+#   for i in range(len(image_matrix)):
+#       image_matrix[i].reverse()
+
+
+
 ### Objective challenge:
 ### Classify the runtimes of each of the following functions:
 
